@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+   frontend:
+     image: suyashpatel98/tic-tac-toe-frontend
+     stdin_open: true
+     tty: true
+     environment:
+       - CI=true
+     depends_on:
+       - backend
+     expose:
+       - "3000"
+     ports:
+       - "3000:3000"
+   backend:
+     image: suyashpatel98/tic-tac-toe-backend
+     ports:
+       - "8080:8080"
